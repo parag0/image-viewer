@@ -6,6 +6,7 @@ SwiperCore.use([ EffectCoverflow, Pagination ]);
 @Component({
   selector: 'app-eg-image',
   templateUrl: './eg-image.component.html',
+  styleUrls: ['./eg-image.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class EgImageComponent implements OnInit {

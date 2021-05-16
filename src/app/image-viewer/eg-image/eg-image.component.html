@@ -1,19 +1,4 @@
-<!-- <swiper
-  [slidesPerView]="1"
-  [spaceBetween]="50"
-  [navigation]="true"
-  [pagination]="{ clickable: true }"
-  [thumbs]="{ swiper: thumbsSwiper }"
->
-  <ng-template swiperSlide>Slide 1</ng-template>
-  <ng-template swiperSlide>Slide 2</ng-template>
-  <ng-template swiperSlide>Slide 3</ng-template>
-  <ng-template swiperSlide>Slide 4</ng-template>
-  <ng-template swiperSlide>Slide 5</ng-template>
-  <ng-template swiperSlide>Slide 6</ng-template>
-</swiper> -->
-
-<swiper [effect]="'coverflow'" [grabCursor]="true" [centeredSlides]="true" [slidesPerView]="'auto'"[coverflowEffect]="{ rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: true }" [pagination]="true" class="mySwiper">
+<swiper [autoHeight]="true" [effect]="'coverflow'" [grabCursor]="true" [centeredSlides]="true" [slidesPerView]="'auto'"[coverflowEffect]="{ rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: true }" [pagination]="true" class="mySwiper">
 	<ng-template swiperSlide>
     <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
 	</ng-template>
