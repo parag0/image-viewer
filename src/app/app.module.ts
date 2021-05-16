@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EgImageComponent } from './image-viewer/eg-image/eg-image.component'
 import { MgImageComponent } from './image-viewer/mg-image/mg-image.component'
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [
@@ -16,10 +17,10 @@ import { MgImageComponent } from './image-viewer/mg-image/mg-image.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SwiperModule
   ],
   providers: [],
-  entryComponents: [EgImageComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
