@@ -1,6 +1,7 @@
 @import "~swiper/swiper";
 @import "~swiper/components/effect-coverflow/effect-coverflow";
 @import "~swiper/components/pagination/pagination";
+@import "~swiper/components/lazy/lazy";
 
 .swiper-container {
   display: flex;
@@ -21,4 +22,8 @@
 .swiper-slide img {
   display: block;
   width: 100%;
+}
+
+.swiper-pagination {
+  margin-top: 400px;
 }
