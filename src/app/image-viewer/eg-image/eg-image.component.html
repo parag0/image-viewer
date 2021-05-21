@@ -1,8 +1,8 @@
 <div class="swiper-container">
+  <div id="bg-image"></div>
   <div class="swiper-wrapper">
-    <swiper [config]="swiper" class="mySwiper">
+    <swiper [config]="swiper" (slideChange)="onSlideChange($event)" class="mySwiper">
       <ng-template swiperSlide *ngFor="let img of slides">
-        <!-- <img src={{img}} class="swiper-lazy" /> -->
         <img
           class="swiper-lazy"
           data-src={{img}}
