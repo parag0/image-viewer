@@ -3,6 +3,8 @@ import SwiperCore, { Pagination, EffectCoverflow, Lazy } from 'swiper/core';
 import { SwiperModule } from 'swiper/angular';
 
 SwiperCore.use([EffectCoverflow, Pagination, Lazy]);
+
+declare var $: any;
 @Component({
   selector: 'app-eg-image',
   templateUrl: './eg-image.component.html',
