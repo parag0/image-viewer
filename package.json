@@ -23,6 +23,7 @@
     "angular-super-gallery": "^2.1.9",
     "jquery": "^3.5.1",
     "ngx-image-viewer": "^1.0.13",
+    "ngx-swiper-wrapper": "^10.0.0",
     "rxjs": "~6.6.0",
     "swiper": "^6.6.1",
     "tslib": "^2.1.0",
