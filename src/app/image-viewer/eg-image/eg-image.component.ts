@@ -1,8 +1,12 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import SwiperCore, { Pagination, EffectCoverflow, Lazy } from 'swiper/core';
-import { SwiperModule } from 'swiper/angular';
+import SwiperCore, {
+  Pagination,
+  Navigation,
+  EffectCoverflow,
+} from 'swiper/core';
+import { Component, ViewEncapsulation, ViewChild, OnInit } from '@angular/core';
+import { SwiperComponent } from 'swiper/angular';
 
-SwiperCore.use([EffectCoverflow, Pagination, Lazy]);
+SwiperCore.use([Pagination, Navigation, EffectCoverflow]);
 
 declare var $: any;
 @Component({
@@ -12,7 +16,7 @@ declare var $: any;
   encapsulation: ViewEncapsulation.None,
 })
 export class EgImageComponent implements OnInit {
-  @ViewChild('swiperRef', { static: false }) swiperRef?: SwiperModule;
+  @ViewChild('swiperRef', { static: false }) sliderRef?: SwiperComponent;
 
   public thumbsSwiper: any;
   public swiper: any;
@@ -32,6 +36,7 @@ export class EgImageComponent implements OnInit {
     this.swiper = {
       autoHeight: 'true',
       effect: 'coverflow',
+      spaceBetween: 50,
       grabCursor: 'true',
       centeredSlides: 'true',
       slidesPerView: 'auto',
@@ -43,20 +48,33 @@ export class EgImageComponent implements OnInit {
         slideShadows: true,
       },
       pagination: {
+        dynamicBullets: true,
         el: '.swiper-pagination',
-        type: 'bullets',
+        type: 'fraction',
       },
-      preloadImages: false,
-      lazy: {
-        loadPrevNext: true,
-        elementClass: 'swiper-lazy',
-      },
+      navigation: true,
     };
+
+    $('#bg-image').css(
+      'background-image',
+      'url(https://swiperjs.com/demos/images/nature-10.jpg)'
+    );
   }
 
   onSlideChange(event: any) {
     this.activeImage = this.slides[event.realIndex];
-    console.log('slide change to index', this.activeImage);
+    $('#bg-image').css('background-image', 'url(' + this.activeImage + ')');
+  }
+
+  onSlideEnd(event: any) {
+    console.log('onSlideEnd', event);
+    this.appendSlides();
+  }
+
+  appendSlides() {
+    this.sliderRef!.swiperRef.appendSlide([
+      `<div class="swiper-slide"><img class="swiper-slide1" src="${this.slides[0]}" /></div>`,
+    ]);
   }
 
   setThumbsSwiper(swiper: any) {
