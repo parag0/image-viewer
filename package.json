@@ -20,7 +20,6 @@
     "@angular/router": "~12.0.0",
     "@dockbite/ngx-gallery": "^1.0.6",
     "@types/jquery": "^3.5.3",
-    "angular-super-gallery": "^2.1.9",
     "jquery": "^3.5.1",
     "rxjs": "~6.6.0",
     "swiper": "^6.6.1",
