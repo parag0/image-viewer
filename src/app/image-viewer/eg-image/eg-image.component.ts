@@ -3,7 +3,13 @@ import SwiperCore, {
   Navigation,
   EffectCoverflow,
 } from 'swiper/core';
-import { Component, ViewEncapsulation, ViewChild, OnInit } from '@angular/core';
+import {
+  Component,
+  ViewEncapsulation,
+  ViewChild,
+  OnInit,
+  ChangeDetectorRef,
+} from '@angular/core';
 import { SwiperComponent } from 'swiper/angular';
 
 SwiperCore.use([Pagination, Navigation, EffectCoverflow]);
@@ -16,6 +22,8 @@ declare var $: any;
   encapsulation: ViewEncapsulation.None,
 })
 export class EgImageComponent implements OnInit {
+  constructor(private cd: ChangeDetectorRef) {}
+
   @ViewChild('swiperRef', { static: false }) sliderRef?: SwiperComponent;
 
   public thumbsSwiper: any;
@@ -72,9 +80,11 @@ export class EgImageComponent implements OnInit {
   }
 
   appendSlides() {
-    this.sliderRef!.swiperRef.appendSlide([
-      `<div class="swiper-slide"><img class="swiper-slide1" src="${this.slides[0]}" /></div>`,
-    ]);
+    this.slides = [
+      ...this.slides,
+      'https://swiperjs.com/demos/images/nature-1.jpg',
+    ];
+    this.cd.detectChanges();
   }
 
   setThumbsSwiper(swiper: any) {
