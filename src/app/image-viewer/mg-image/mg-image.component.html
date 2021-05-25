@@ -1,2 +1,18 @@
-<a routerLink="../eg_image">EG Image</a>
-<p>MG Router Working</p>
+<div class="swiper-container">
+  <div id="bg-image"></div>
+  <div class="swiper-wrapper">
+    <swiper #swiperRef
+      [config]="swiper"
+      (slideChange)="onSlideChange($event)"
+      (reachEnd)="onSlideEnd($event)"
+      class="mySwiper"
+    >
+      <ng-template #slidesArray swiperSlide *ngFor="let img of slides">
+        <img class="swiper-slide1" data-src="{{ img }}" />
+        <!-- <div class="swiper-lazy-preloader"></div> -->
+      </ng-template>
+    </swiper>
+  </div>
+
+  <div class="swiper-pagination"></div>
+</div>
